@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">My Pokemon</string>
+
+    <string name="label_loading">Loading...</string>
+    <string name="error_load_more">Failed to fetch data</string>
+    <string name="label_retry">retry</string>
+
+    <!--  Login  -->
+    <string name="label_login">Login</string>
+    <string name="label_username">Username</string>
+    <string name="label_password">Password</string>
+    <string name="label_register_in_login">Don’t have an account? Please register here</string>
+    <string name="error_empty_login">Oops! Please fill in both username and password.</string>
+
+    <!--  Register  -->
+    <string name="label_register">Register</string>
+    <string name="label_name">Name</string>
+    <string name="label_confirm_password">Confirm Password</string>
+    <string name="label_login_in_register">Have an account? Login here</string>
+    <string name="error_empty_register">Oops! Some fields are empty. Please complete all fields.</string>
+    <string name="error_password_not_match">Oops! Your passwords don’t match.</string>
+
+    <!--  Home  -->
+    <string name="label_item_id">ID: %1$s</string>
+
+    <!--  Profile  -->
+    <string name="label_logout">Logout</string>
+
+    <!--  Navigation  -->
+    <string name="nav_home">Home</string>
+    <string name="nav_profile">Profile</string>
+
+    <!--  Detail  -->
+    <string name="label_abilities">Abilities:</string>
+
+    <!--  Search  -->
+    <string name="hint_search">Search Pokemon name</string>
+    <string name="error_not_found">We couldn’t find any results for %1$s</string>
+</resources>
