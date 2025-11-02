@@ -133,5 +133,7 @@ fun DetailScreen(
                 }
             }
         }
+
+        else -> Unit
     }
 }

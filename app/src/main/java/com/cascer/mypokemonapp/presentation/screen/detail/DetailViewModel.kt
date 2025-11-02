@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 sealed class DetailUiState {
+    object Idle : DetailUiState()
     object Loading : DetailUiState()
     data class Success(val data: PokemonDetail) : DetailUiState()
     data class Error(val message: String) : DetailUiState()
@@ -22,10 +23,11 @@ class DetailViewModel @Inject constructor(
     private val useCase: GetPokemonDetailUseCase
 ) : ViewModel() {
 
-    var uiState by mutableStateOf<DetailUiState>(DetailUiState.Loading)
+    var uiState by mutableStateOf<DetailUiState>(DetailUiState.Idle)
         private set
 
     fun getDetail(id: Int) = viewModelScope.launch {
+        uiState = DetailUiState.Loading
         runCatching { useCase.invoke(id) }
             .onSuccess {
                 it?.let { uiState = DetailUiState.Success(it) } ?: run {

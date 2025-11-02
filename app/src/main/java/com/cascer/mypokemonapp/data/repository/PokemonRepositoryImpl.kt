@@ -42,10 +42,10 @@ class PokemonRepositoryImpl @Inject constructor(
 
     override suspend fun getPokemonDetail(id: Int): PokemonDetail? = withContext(Dispatchers.IO) {
         val localData = database.pokemonDao().getPokemonDetail(id)
-        localData?.toDomain() ?: runCatching {
+        localData?.toDomain() ?: run {
             val result = apiService.getPokemonDetail(id)
             database.pokemonDao().insertPokemonDetail(result.toEntity())
             result.toDomain()
-        }.getOrNull()
+        }
     }
 }
