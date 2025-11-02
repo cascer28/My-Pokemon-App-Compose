@@ -40,7 +40,7 @@ class PokemonRepositoryImpl @Inject constructor(
         pagingSourceFactory = { database.pokemonDao().searchPokemonList("%$query%") }
     ).flow.map { it.map { data -> data.toDomain() } }
 
-    override suspend fun getPokemonDetail(id: Int): PokemonDetail? = withContext(Dispatchers.IO) {
+    override suspend fun getPokemonDetail(id: Int): PokemonDetail = withContext(Dispatchers.IO) {
         val localData = database.pokemonDao().getPokemonDetail(id)
         localData?.toDomain() ?: run {
             val result = apiService.getPokemonDetail(id)
