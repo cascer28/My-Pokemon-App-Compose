@@ -27,9 +27,8 @@ class PokemonMediator(
         return try {
             val page = when (loadType) {
                 LoadType.REFRESH -> {
-//                    val remoteKeys = getRemoteKeyForCurrentPosition(state, remoteKeysDao)
-//                    remoteKeys?.nextKey?.minus(1) ?: 1
-                    1
+                    val remoteKeys = getRemoteKeyForCurrentPosition(state, remoteKeysDao)
+                    remoteKeys?.nextKey?.minus(1) ?: 1
                 }
 
                 LoadType.PREPEND -> {
